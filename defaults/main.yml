@@ -1,0 +1,47 @@
+
+apache_install: 1
+apache_user: vagrant
+apache_group: vagrant
+
+php_version: '55'
+
+php_modules:
+  - php5-cli
+  - php5-intl
+  - php5-mcrypt
+  - php5-curl
+  - php5-gd
+
+php_pear_install: 1
+php_pear_channels: [ ]
+php_pear_modules: [ ]
+
+php_pecl_install: 1
+php_pecl_modules: [ ]
+
+php_apc_install: 1
+php_composer_install: 1
+php_mailcatcher_install: 0
+php_phpmyadmin_install: 0
+
+php_xdebug_install: 1
+php_xdebug_enabled: 1
+php_xdebug_webgrind: 1
+php_xdebug_settings:
+  default_enable: '1'
+  remote_autostart: '0'
+  remote_connect_back: '1'
+  remote_enable: '1'
+  remote_handler: dbgp
+  remote_port: '9000'
+
+php_xhprof_install: 0
+php_xhprof_xhgui: 1
+
+php_ini:
+  display_errors: 'On'
+  display_startup_errors: 'On'
+  error_reporting: '-1'
+  short_open_tag: 'On'
+
+php_timezone: UTC

@@ -2,12 +2,12 @@
 
 - name: apc | require pecl
   fail: msg="PHP - Pecl is required"
-  when: php.pecl is not defined or php.pecl.install != 1
+  when: php_pecl is not defined or php_pecl_install != 1
 
 # Package 
 
 - name: apc | install packages
-  command: pecl install {{ php.apc.package|default('apc') }}
+  command: pecl install {{ php_apc_package|default('apc') }}
   ignore_errors: True
 
 # Configuration

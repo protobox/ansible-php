@@ -31,5 +31,5 @@
   file: 
     path: /var/lib/php5
     owner: root
-    group: "{{ apache.group | default('www-data') }}" 
+    group: "{{ apache_group | default('www-data') }}" 
     mode: 0770

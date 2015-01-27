@@ -29,8 +29,8 @@
     backup=yes
   when: >
     ansible_os_family == 'Debian' and 
-    apache is defined and 
-    apache.install == 1
+    apache_install is defined and 
+    apache_install == 1
   notify:
     - php-restart
 

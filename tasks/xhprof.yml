@@ -2,12 +2,12 @@
 
 - name: xhprof | require pecl
   fail: msg="PHP - Pecl is required"
-  when: php.pecl is not defined or php.pecl.install != 1
+  when: php_pecl is not defined or php_pecl_install != 1
 
 # Package 
 
 - name: xhprof | install packages
-  command: pecl install {{ php.xhprof.package|default('xhprof-beta') }}
+  command: pecl install {{ php_xhprof_package|default('xhprof-beta') }}
   ignore_errors: True
 
 # Configuration

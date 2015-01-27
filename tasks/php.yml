@@ -23,7 +23,7 @@
   apt_repository: >
     repo=ppa:ondrej/php5-oldstable
     update_cache=true
-  when: ansible_os_family == 'Debian' and php.version == '54'
+  when: ansible_os_family == 'Debian' and php_version == '54'
 
 # PHP
 
@@ -49,12 +49,12 @@
     pkg={{ item }}
     state=latest
     force=yes
-  with_items: php.modules
-  when: ansible_os_family == 'Debian' and php.modules is defined
+  with_items: php_modules
+  when: ansible_os_family == 'Debian' and php_modules is defined
 
 - name: php | install rpm php packages
   apt: >
     pkg={{ item }}
     state=latest
-  with_items: php.modules
-  when: ansible_os_family in ['CentOS', 'Fedora', 'OpenSuse', 'RedHat'] and php.modules is defined
+  with_items: php_modules
+  when: ansible_os_family in ['CentOS', 'Fedora', 'OpenSuse', 'RedHat'] and php_modules is defined

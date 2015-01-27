@@ -27,8 +27,8 @@
 
 - name: pear | install channels
   command: pear channel-discover {{ item }}
-  with_items: php.pear.channels
-  when: php.pear.channels is defined
+  with_items: php_pear_channels
+  when: php_pear_channels is defined
   register: channel_result
   changed_when: "'initialized' not in channel_result.stdout"
   failed_when: "'already initialized' not in channel_result.stdout and 'succeeded' not in  channel_result.stdout"
@@ -36,9 +36,9 @@
 # Pear Packages
 
 - name: pear | install packages
-  command: pear install {{ php.pear.install_args|default('') }} {{ item }}
-  with_items: php.pear.modules
-  when: php.pear.modules is defined
+  command: pear install {{ php_pear_install_args|default('') }} {{ item }}
+  with_items: php_pear_modules
+  when: php_pear_modules is defined
   register: pear_result
   changed_when: "'already installed' not in pear_result.stdout"
   failed_when: "'already installed' not in pear_result.stdout and 'install ok' not in pear_result.stdout and pear_result.stderr"

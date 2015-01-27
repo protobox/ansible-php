@@ -2,7 +2,7 @@
 
 - name: pecl | require pear
   fail: msg="PHP - Pear is required"
-  when: php.pear is not defined or php.pear.install != 1
+  when: php_pear is not defined or php_pear_install != 1
 
 #- name: pecl | install pecl
 #  command: pecl install pecl_http
@@ -11,6 +11,6 @@
 
 - name: pecl | install packages
   command: pecl install {{ item }}
-  with_items: php.pecl.modules
-  when: php.pecl.modules is defined
+  with_items: php_pecl_modules
+  when: php_pecl_modules is defined
   ignore_errors: True
